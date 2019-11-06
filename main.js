@@ -7,7 +7,7 @@ var app = express();
 
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 
-sequelize
+sequelize 
   .authenticate()
   .then(() => {
     console.log('Conexion con Base de Datos establecida.');
