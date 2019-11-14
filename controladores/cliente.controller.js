@@ -34,7 +34,7 @@ export async function nuevoCliente(req, res) {
     }
   } catch (e) {
     res.status(500).json({
-      error: e.message
+      error: e
     })
   }
 }
@@ -42,7 +42,7 @@ export async function nuevoCliente(req, res) {
 export async function getCliente(req, res) {
   try {
     const cliente = await Cliente.findOne({
-      where: { id: req.params.idCliente }
+      where: { id: req.params.idcliente }
     });
   
     if(cliente) {
@@ -64,7 +64,7 @@ export async function getCliente(req, res) {
 export async function borrarCliente(req, res) {
   try {
     const cantidadBorrados = await Cliente.destroy({
-      where: { id: req.params.idCliente }
+      where: { id: req.params.idcliente }
     })
   
     res.json({
@@ -81,7 +81,7 @@ export async function borrarCliente(req, res) {
 export async function modificarCliente(req, res) {
   try {
     const cliente = await Cliente.findOne({
-      where: { id: req.params.idCliente }
+      where: { id: req.params.idcliente }
     })
 
     const { nombre, cuit, direccion } = req.body

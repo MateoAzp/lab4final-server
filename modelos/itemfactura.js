@@ -34,21 +34,21 @@ const ItemFactura = database.define('facturas_item', {
     allowNull : false,
   },  
   precioUnitario: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(19,2),
     allowNull : false,
     validate: {
       min: 1
     }
   },
   iva: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(19,2),
     allowNull : false,
     validate: {
         min: 1
     }
   },
   subtotal: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(19,2),
     allowNull : false,
     validate: {
       min: 1

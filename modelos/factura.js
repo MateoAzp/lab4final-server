@@ -34,7 +34,7 @@ const Factura = database.define('facturas', {
     allowNull : false,
   },
   total: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(19,2),
     allowNull : false,
     validate: {
       min: 0

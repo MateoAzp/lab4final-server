@@ -8,7 +8,7 @@ const Cliente = database.define('clientes', {
     autoIncrement: true
   },
   nombre: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(80),
     allowNull: false,
     validate: {
         len: [4,80]
@@ -16,20 +16,19 @@ const Cliente = database.define('clientes', {
 
   },
   cuit: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(11),
     allowNull: false,
     validate: {
-        len: [15, 15]
+        len: [10, 11]
     }
   },
   direccion: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(120),
       allowNull : true,
       validate: {
         len: [0, 120]
       }
   }
-
 })
 
 export default Cliente;

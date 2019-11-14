@@ -16,14 +16,21 @@ const Producto = database.define('productos', {
 
   },
   codigo: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(50),
     allowNull: false,
     validate: {
-        len: [1, 300]
+        len: [1, 50]
+    }
+  },
+  descripcion: {
+    type: Sequelize.STRING(300),
+    allowNull: true,
+    validate: {
+        len: [0, 300]
     }
   },
   precio: {
-      type: Sequelize.DECIMAL,
+      type: Sequelize.DECIMAL(19,2),
       allowNull : false,
       validate: {
         min: 1

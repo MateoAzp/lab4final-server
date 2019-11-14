@@ -4,9 +4,9 @@ export async function getProductos(req, res) {
   try {
     const productos = await Producto.findAll();
 
-    res.json({
-      data: productos
-    });
+    res.json(
+      productos
+    );
   } catch (e) {
     res.status(500).json({
       error: e.message
@@ -15,12 +15,15 @@ export async function getProductos(req, res) {
 }
 
 export async function nuevoProducto(req, res) {
+  console.log(req.body)
+  console.log("body fin")
   const { nombre, codigo, descripcion, precio } = req.body
+  
   try {
     const producto = await Producto.create({
       nombre: nombre,
       codigo: codigo,
-      decripcion: descripcion,
+      descripcion: descripcion,
       precio: precio
     });
   
@@ -43,13 +46,11 @@ export async function nuevoProducto(req, res) {
 export async function getProducto(req, res) {
   try {
     const producto = await Producto.findOne({
-      where: { id: req.params.idProducto }
+      where: { id: req.params.idproducto }
     });
-  
+    console.log("producto",producto)
     if(producto) {
-      res.json({
-        data: producto
-      });
+      res.json(producto);
     } else {
       res.json({
         data: {}
@@ -64,8 +65,8 @@ export async function getProducto(req, res) {
 
 export async function borrarProducto(req, res) {
   try {
-    const cantidadFilasBorradas = await Provincia.destroy({
-      where: { id: req.params.idProducto }
+    const cantidadFilasBorradas = await Producto.destroy({
+      where: { id: req.params.idproducto }
     })
   
     res.json({
