@@ -4,9 +4,7 @@ export async function getProductos(req, res) {
   try {
     const productos = await Producto.findAll();
 
-    res.json(
-      productos
-    );
+    res.json(productos);
   } catch (e) {
     res.status(500).json({
       error: e.message

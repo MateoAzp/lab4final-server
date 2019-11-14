@@ -4,9 +4,7 @@ export async function getClientes(req, res) {
   try {
     const clientes = await Cliente.findAll();
 
-    res.json({
-      data: clientes
-    });
+    res.json(clientes);
   } catch (e) {
     res.status(500).json({
       error: e.message

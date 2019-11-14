@@ -4,9 +4,7 @@ export async function getFacturas(req, res) {
   try {
     const facturas = await Factura.findAll({ include: 'producto'});
 
-    res.json({
-      data: facturas
-    });
+    res.json(facturas);
   } catch (e) {
     res.status(500).json({
       error: e.message

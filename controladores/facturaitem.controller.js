@@ -1,9 +1,11 @@
 import FacturaItem from '../modelos/itemfactura';
 
 export async function crearItemsDeUnaFactura(req, res) {
-    const { itemsFactura } = req.body
+    
   try {
     let itemsNuevos = []
+    console.log("body",req.body)
+    const { itemsFactura } = req.body
     for(const item of itemsFactura)
     {
         const itemFacturaNuevo = await Facturas.create({

@@ -5,7 +5,7 @@ const rutasItemFactura = Router()
 
 rutasItemFactura.get('/:idfactura', getItemsDeUnaFactura);
 rutasItemFactura.get('/:id', getItemFactura);
-rutasItemFactura.post('/:idfactura', crearItemsDeUnaFactura);
+rutasItemFactura.post('/', crearItemsDeUnaFactura);
 rutasItemFactura.delete('/:idfactura', borrarItemsDeUnaFactura);
 
 export default rutasItemFactura
